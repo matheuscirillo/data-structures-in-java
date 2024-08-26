@@ -257,4 +257,19 @@ public class DoublyLinkedListTest {
         assertThrows(NoSuchElementException.class, () -> it.next());
     }
 
+    @Test
+    public void enhancedForIterationTesting() {
+        DoublyLinkedList<String> list = new DoublyLinkedList<>();
+
+        // populate
+        for (char ch = 'A'; ch <= 'Z'; ch++) {
+            list.append(String.valueOf(ch));
+        }
+
+        int idx = 0;
+        for (String s : list) {
+            assertEquals(s, list.get(idx++));
+        }
+    }
+
 }
