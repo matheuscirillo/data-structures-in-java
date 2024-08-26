@@ -25,7 +25,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
             this.last = this.first;
             size++;
         } else {
-            newNode = insertAfter(data, size == 0 ? 0 : size - 1);
+            newNode = insertAfter(data, last);
         }
 
         return newNode;
