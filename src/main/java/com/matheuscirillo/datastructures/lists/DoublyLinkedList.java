@@ -91,7 +91,6 @@ public class DoublyLinkedList<T> implements Iterable<T> {
     }
 
     private Node<T> doInsert(Node<T> node, T data, InsertMode mode) {
-        // mode = 0 = before, mode = 1 = after
         Node<T> newNode;
         if (mode == InsertMode.BEFORE) {
             newNode = new Node<>(node.prev, data, node);
@@ -121,36 +120,6 @@ public class DoublyLinkedList<T> implements Iterable<T> {
 
         if (index < 0)
             throw new ArrayIndexOutOfBoundsException("index cannot be negative");
-    }
-
-    public Node<T> getFirst() {
-        return first;
-    }
-
-    public Node<T> getLast() {
-        return last;
-    }
-
-    public int getSize() {
-        return this.size;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
-        Node<T> curNode = this.first;
-        if (curNode != null)
-            do {
-                sb.append(curNode.data);
-                if (curNode.next != null) {
-                    sb.append(", ");
-                }
-            } while ((curNode = curNode.next) != null);
-
-        sb.append("]");
-
-        return sb.toString();
     }
 
     @Override
@@ -202,6 +171,36 @@ public class DoublyLinkedList<T> implements Iterable<T> {
                 return node.data;
             }
         };
+    }
+
+    public Node<T> getFirst() {
+        return first;
+    }
+
+    public Node<T> getLast() {
+        return last;
+    }
+
+    public int getSize() {
+        return this.size;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        Node<T> curNode = this.first;
+        if (curNode != null)
+            do {
+                sb.append(curNode.data);
+                if (curNode.next != null) {
+                    sb.append(", ");
+                }
+            } while ((curNode = curNode.next) != null);
+
+        sb.append("]");
+
+        return sb.toString();
     }
 
     public static class Node<T> {
