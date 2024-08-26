@@ -13,7 +13,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
         if (this.first == null) {
             return append(data);
         } else {
-            return insertBefore(data, 0);
+            return insertBefore(data, first);
         }
     }
 
